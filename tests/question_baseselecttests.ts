@@ -123,3 +123,33 @@ QUnit.test("check item value type", (assert) => {
   assert.equal(q3.createItemValue(1).getType(), "buttongroupitemvalue", "create buttongroup item");
   assert.equal(q3.createItemValue(1).value, 1, "create buttongroup, value");
 });
+QUnit.test("check item value Loc string owner", (assert) => {
+  const survey = new SurveyModel({
+    questions: [
+      {
+        type: "dropdown",
+        name: "q1",
+        choices: ["Item 1"],
+      },
+      {
+        type: "imagepicker",
+        name: "q2",
+        choices: ["Item 1"],
+      },
+      {
+        type: "radiogroup",
+        name: "q3",
+        choices: ["Item 1"],
+      },
+    ],
+  });
+  const q1 = <QuestionSelectBase>survey.getQuestionByName("q1");
+  const q2 = <QuestionSelectBase>survey.getQuestionByName("q2");
+  const q3 = <QuestionSelectBase>survey.getQuestionByName("q3");
+  assert.equal(q1.choices[0].locText.owner, q1.choices[0], "drop down item loctext owner correct");
+  assert.equal(q2.choices[0].locText.owner, q2.choices[0], "imagepicker item loctext owner correct");
+  assert.equal(q3.choices[0].locText.owner, q3.choices[0], "radiobutton item loctext owner correct");
+  assert.equal(q1.choices[0].locText.name, "text", "drop down item loctext name correct");
+  assert.equal(q2.choices[0].locText.name, "text", "imagepicker item loctext name correct");
+  assert.equal(q3.choices[0].locText.name, "text", "radiobutton item loctext name correct");
+});

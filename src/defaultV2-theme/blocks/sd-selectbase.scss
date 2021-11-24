@@ -2,6 +2,7 @@
   border: none;
   margin: 0;
   padding: 0;
+  white-space: normal;
 }
 .sd-selectbase__label {
   display: flex;
@@ -48,6 +49,20 @@
   box-sizing: border-box;
   word-break: break-word;
 }
+
+.sd-selectbase__column[class*="sv-q-column-"] {
+  @media (max-width: 600px) {
+    max-width: 100%;
+    display: block;
+  }
+}
+
 .sd-selectbase__other {
-    margin-top: calcSize(2);
+  margin-top: calcSize(2);
+}
+.sd-selectbase__item--inline {
+  display: inline-block;
+}
+.sd-selectbase__item--inline:not(:last-child) {
+  padding-right: calcSize(2);
 }

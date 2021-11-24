@@ -101,7 +101,8 @@ export var defaultV2Css = {
     hasError: "sd-question--error",
     disabled: "sd-question--disabled"
   },
-  image: { root: "sd-image", image: "sv_image_image" },
+  image: { mainRoot: "sd-question sd-row__question", root: "sd-image", image: "sv_image_image" },
+  html: { mainRoot: "sd-question sd-row__question", root: "" },
   error: {
     root: "sd-question__erbox",
     icon: "",

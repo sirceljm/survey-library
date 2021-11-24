@@ -500,7 +500,7 @@ export class QuestionMatrixDropdownRenderedTable extends Base {
             iconName: "icon-delete",
             component: "sv-action-bar-item",
             location: "end",
-            showTitle: false,
+            showTitle: true,
             title: matrix.removeRowText,
             enabled: !matrix.isInputReadOnly,
             data: { row: row, question: matrix },

@@ -41,8 +41,23 @@
 }
 .sd-table__cell--actions{
   white-space: nowrap;
+  #remove-row {
+    use {
+      opacity: 0.5;
+      fill: $foreground-light;
+    }
+    .sv-action-bar-item__title {
+      display: none;
+      color: $red;
+      font-weight: 600;
+      line-height: calcSize(3);
+      font-size: calcSize(2);
+      font-family: $font-family;
+      font-weight: 600;
+      margin-left: 0;
+    } 
+  }
   .sv-action-bar {
-    opacity: 0.5;
     padding: 0;
   }
   .sv-action:not(:last-child) > .sv-action__content {
@@ -57,5 +72,37 @@
   position: relative;
   .sd-question__erbox--tooltip {
     display: inline-block;
+  }
+}
+
+.sd-table {
+  @media (max-width: 600px) {
+    tr {
+      display: block;
+    }
+    thead {
+      display: none;
+    }
+    .sd-table__cell {
+      text-align: left;
+      padding-right: 0;
+      display: block;
+    }
+    .sd-table__cell--row-text {
+      color: $foreground-light;
+    }
+    .sd-table__cell--actions {
+      .sv-action-bar {
+        justify-content: flex-end;
+      }  
+    }
+    #remove-row { 
+      .sv-action-bar-item__icon {
+        display: none;
+      }
+      .sv-action-bar-item__title {
+        display: initial;
+      } 
+    }
   }
 }

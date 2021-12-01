@@ -10,7 +10,7 @@ import { LocalizableString } from "survey-core";
 import { ItemValue } from "survey-core";
 import { ImplementorBase } from "./kobase";
 import { StylesManager } from "survey-core";
-import { doKey2ClickDown, doKey2ClickUp } from "../utils/utils";
+import { doKey2ClickDown, doKey2ClickUp, doKey2ClickMouseUp } from "survey-core";
 
 CustomWidgetCollection.Instance.onCustomWidgetAdded.add(customWidget => {
   if (customWidget.widgetJson.isDefaultRender) return;
@@ -419,5 +419,6 @@ ko.bindingHandlers["key2click"] = {
       return false;
     };
     element.onkeydown = (evt: any) => doKey2ClickDown(evt, options);
+    element.onmouseup = (evt: any) => doKey2ClickMouseUp(evt);
   },
 };

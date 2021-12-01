@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Base, Question, PageModel, SurveyError, StylesManager, surveyCss, Helpers, doKey2ClickUp } from "survey-core";
+import { Base, Question, PageModel, SurveyError, StylesManager, surveyCss, Helpers, doKey2ClickUp, doKey2ClickDown, doKey2ClickMouseUp } from "survey-core";
 import { ReactSurveyModel } from "./reactsurveymodel";
 import { SurveyPage } from "./page";
 import { ISurveyCreator } from "./reactquestion";
@@ -10,7 +10,7 @@ import { SurveyTimerPanel } from "./reacttimerpanel";
 import { SurveyNavigation } from "./reactSurveyNavigation";
 import { ReactQuestionFactory } from "./reactquestion_factory";
 import { ReactElementFactory } from "./element-factory";
-import { doKey2ClickDown } from "../utils/utils";
+
 
 export class Survey extends SurveyElementBase<any, any>
   implements ISurveyCreator {
@@ -367,7 +367,8 @@ export function attachKey2click(element: JSX.Element, viewModel?: any, options =
         doKey2ClickUp(evt, options);
         return false;
       },
-      onKeyDown: (evt: any) => doKey2ClickDown(evt, options)
+      onKeyDown: (evt: any) => doKey2ClickDown(evt, options),
+      onMouseUp: (evt: any) => doKey2ClickMouseUp(evt)
     }
   );
 }

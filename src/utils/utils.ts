@@ -198,6 +198,15 @@ function doKey2ClickDown(evt: KeyboardEvent, options = { processEsc: true }): vo
     evt.preventDefault();
   }
 }
+function doKey2ClickMouseUp(evt: any, options = { processEsc: true }): void {
+  if (!!evt.target && evt.target.contentEditable === "true") {
+    return;
+  }
+  const element: any = evt.currentTarget;
+  if (!element) return;
+  element.blur();
+}
+
 function increaseHeightByContent(element: HTMLElement, getComputedStyle?: (elt: Element) => any) {
   if (!element) return;
   if (!getComputedStyle) getComputedStyle = (elt: Element) => { return window.getComputedStyle(elt); };
@@ -227,6 +236,7 @@ export {
   createSvg,
   doKey2ClickUp,
   doKey2ClickDown,
+  doKey2ClickMouseUp,
   getIconNameFromProxy,
   increaseHeightByContent,
   getOriginalEvent,

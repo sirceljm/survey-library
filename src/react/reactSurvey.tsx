@@ -11,7 +11,6 @@ import { SurveyNavigation } from "./reactSurveyNavigation";
 import { ReactQuestionFactory } from "./reactquestion_factory";
 import { ReactElementFactory } from "./element-factory";
 
-
 export class Survey extends SurveyElementBase<any, any>
   implements ISurveyCreator {
   private previousJSON = {};

@@ -27,17 +27,19 @@ export class MatrixDynamicRowModel extends MatrixDropdownRowModelBase implements
   public get rowName() {
     return this.id;
   }
-
+  private getColumnForShortCutText(): Question {
+    const columnNames = ["title", "text", "name", "value"];
+    for(var i = 0; i < columnNames.length; i ++) {
+      const question = this.getQuestionByColumnName(columnNames[i]);
+      if(!!question && !question.isEmpty()) return question;
+    }
+    return undefined;
+  }
   public get shortcutText(): string {
     const matrix = <QuestionMatrixDynamicModel>this.data;
     const index = matrix.visibleRows.indexOf(this) + 1;
-    const questionValue1 = this.cells.length > 1 ? this.cells[1]["questionValue"] : undefined;
-    const questionValue0 = this.cells.length > 0 ? this.cells[0]["questionValue"] : undefined;
-    return (
-      questionValue1 && questionValue1.value ||
-      questionValue0 && questionValue0.value ||
-      "" + index
-    );
+    const question = this.getColumnForShortCutText();
+    return !!question ? question.displayValue: ("" + index);
   }
 }
 

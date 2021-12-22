@@ -6,6 +6,8 @@ import { SurveyModel } from "../src/survey";
 import { ItemValue } from "../src/itemvalue";
 import { Question } from "../src/question";
 import { QuestionSelectBase } from "../src/question_baseselect";
+import { IShortcutText } from "../src/base-interfaces";
+import { MatrixDynamicRowModel, QuestionMatrixDynamicModel } from "../src/question_matrixdynamic";
 
 export default QUnit.module("DragDropHelper Tests");
 
@@ -312,4 +314,110 @@ QUnit.test("DragDropRankingChoices shortcutClass getter", function (assert) {
   dndRanking.parentElement = survey.getQuestionByName("q");
 
   assert.equal(dndRanking.shortcutClass, "sv-ranking");
+});
+
+QUnit.test("DragDrop IShortcutText: ItemValue", function (assert) {
+  const itemValue:ItemValue = new ItemValue("q1");
+  assert.equal(itemValue.shortcutText, "q1");
+  itemValue.text = "q1-text";
+  assert.equal(itemValue.shortcutText, "q1-text");
+});
+
+QUnit.test("DragDrop IShortcutText: Matrices", function (assert) {
+  let survey = new SurveyModel({
+    elements: [
+      {
+        "type": "matrixdynamic",
+        "name": "m1",
+        "columns": [
+          {
+            "name": "title",
+            defaultValue: "one"
+          },
+          {
+            "name": "text",
+            defaultValue: "two"
+          }
+        ],
+        "choices": [
+          { value: "one", text: "One" },
+          { value: "two", text: "Two" }
+        ]
+      }
+    ],
+  });
+
+  const m1 = survey.getQuestionByName("m1");
+  assert.equal(m1.visibleRows[0].shortcutText, "One");
+
+  survey = new SurveyModel({
+    elements: [
+      {
+        "type": "matrixdynamic",
+        "name": "m2",
+        "columns": [
+          {
+            "name": "value",
+            defaultValue: "one"
+          },
+          {
+            "name": "name",
+            defaultValue: "two"
+          }
+        ],
+        "choices": [
+          "one",
+          { value: "two", text: "Two" }
+        ]
+      }
+    ],
+  });
+  const m2 = survey.getQuestionByName("m2");
+  assert.equal(m2.visibleRows[0].shortcutText, "Two");
+
+  survey = new SurveyModel({
+    elements: [
+      {
+        "type": "matrixdynamic",
+        "name": "m3",
+        "columns": [
+          {
+            "name": "some-1",
+            defaultValue: "one"
+          },
+          {
+            "name": "some-2",
+            defaultValue: "two"
+          }
+        ],
+        "choices": [
+          "one",
+          { value: "two", text: "Two" }
+        ]
+      }
+    ],
+  });
+  const m3 = survey.getQuestionByName("m3");
+  assert.equal(m3.visibleRows[0].shortcutText, "1");
+});
+
+QUnit.test("DragDrop IShortcutText: ItemValue", function (assert) {
+  let survey = new SurveyModel({
+    elements: [
+      {
+        "type": "text",
+        "name": "q1"
+      },
+      {
+        "type": "text",
+        "name": "q2",
+        "title": "Q2"
+      }
+    ],
+  });
+  const q1 = survey.getQuestionByName("q1");
+  const q2 = survey.getQuestionByName("q2");
+
+  assert.equal(q1.shortcutText, "q1");
+  assert.equal(q2.shortcutText, "Q2");
 });

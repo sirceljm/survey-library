@@ -9,8 +9,8 @@ import { SurveyValidator, IValidatorOwner, ValidatorRunner } from "./validator";
 import { TextPreProcessor, TextPreProcessorValue } from "./textPreProcessor";
 import { LocalizableString } from "./localizablestring";
 import { ConditionRunner, ExpressionRunner } from "./conditions";
-import { QuestionCustomWidget } from "./questionCustomWidgets";
-import { CustomWidgetCollection } from "./questionCustomWidgets";
+// import { QuestionCustomWidget } from "./questionCustomWidgets";
+// import { CustomWidgetCollection } from "./questionCustomWidgets";
 import { settings } from "./settings";
 import { SurveyModel } from "./survey";
 import { PanelModel } from "./panel";
@@ -40,8 +40,8 @@ export class Question extends SurveyElement
     return "sq_" + Question.questionCounter++;
   }
   private conditionRunner: ConditionRunner = null;
-  private isCustomWidgetRequested: boolean;
-  private customWidgetValue: QuestionCustomWidget;
+  // private isCustomWidgetRequested: boolean;
+  // private customWidgetValue: QuestionCustomWidget;
   customWidgetData = { isNeedRender: true };
   focusCallback: () => void;
   surveyLoadCallback: () => void;
@@ -553,16 +553,16 @@ export class Question extends SurveyElement
   /**
    * The link to the custom widget.
    */
-  public get customWidget(): QuestionCustomWidget {
-    if (!this.isCustomWidgetRequested && !this.customWidgetValue) {
-      this.isCustomWidgetRequested = true;
-      this.updateCustomWidget();
-    }
-    return this.customWidgetValue;
-  }
-  public updateCustomWidget(): void {
-    this.customWidgetValue = CustomWidgetCollection.Instance.getCustomWidget(this);
-  }
+  // public get customWidget(): QuestionCustomWidget {
+  //   if (!this.isCustomWidgetRequested && !this.customWidgetValue) {
+  //     this.isCustomWidgetRequested = true;
+  //     this.updateCustomWidget();
+  //   }
+  //   return this.customWidgetValue;
+  // }
+  // public updateCustomWidget(): void {
+  //   this.customWidgetValue = CustomWidgetCollection.Instance.getCustomWidget(this);
+  // }
   public get isCompositeQuestion(): boolean {
     return false;
   }

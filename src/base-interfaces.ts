@@ -1,9 +1,9 @@
 import { ILocalizableOwner, LocalizableString } from "./localizablestring";
 import { HashTable } from "./helpers";
-import {
-  MatrixDropdownRowModelBase,
-  QuestionMatrixDropdownModelBase,
-} from "./question_matrixdropdownbase";
+// import {
+//   MatrixDropdownRowModelBase,
+//   QuestionMatrixDropdownModelBase,
+// } from "./question_matrixdropdownbase";
 import { AdaptiveActionContainer } from "./actions/adaptive-container";
 import { SurveyError } from "./survey-error";
 import { Base } from "./base";
@@ -113,11 +113,11 @@ export interface ISurvey extends ITextProcessor, ISurveyErrorOwner {
     element: ISurveyElement,
     titleActions: Array<IAction>
   ): Array<IAction>;
-  getUpdatedMatrixRowActions(
-    question: QuestionMatrixDropdownModelBase,
-    row: MatrixDropdownRowModelBase,
-    actions: Array<IAction>
-  ): Array<IAction>;
+  // getUpdatedMatrixRowActions(
+  //   question: QuestionMatrixDropdownModelBase,
+  //   row: MatrixDropdownRowModelBase,
+  //   actions: Array<IAction>
+  // ): Array<IAction>;
   questionStartIndex: string;
   questionTitleLocation: string;
   questionDescriptionLocation: string;

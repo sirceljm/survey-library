@@ -9,6 +9,8 @@ var TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 var GenerateJsonPlugin = require("generate-json-webpack-plugin");
 var DashedNamePlugin = require("./webpack-dashed-name");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+var Visualizer = require('webpack-visualizer-plugin');
 
 var dts = require("dts-bundle");
 var rimraf = require("rimraf");
@@ -262,7 +264,9 @@ module.exports = function(options, packageJson, chunkName) {
       }),
       new RemoveCoreFromName(),
       new FixStyleOnlyEntriesPlugin(),
-      new DashedNamePlugin()
+      new DashedNamePlugin(),
+      // new BundleAnalyzerPlugin({ analyzerMode: "json" }),
+      new Visualizer()
     ],
   };
 

@@ -2,19 +2,19 @@
 export * from "./chunks/model";
 
 // localization
-import "./chunks/localization";
+// import "./chunks/localization";
 
 // css standard classes
-export { defaultStandardCss } from "../defaultCss/cssstandard";
-// css bootstrap classes
-export { defaultBootstrapCss } from "../defaultCss/cssbootstrap";
-// css bootstrap + material classes
-export { defaultBootstrapMaterialCss } from "../defaultCss/cssbootstrapmaterial";
+// export { defaultStandardCss } from "../defaultCss/cssstandard";
+// // css bootstrap classes
+// export { defaultBootstrapCss } from "../defaultCss/cssbootstrap";
+// // css bootstrap + material classes
+// export { defaultBootstrapMaterialCss } from "../defaultCss/cssbootstrapmaterial";
 
-export { defaultV2Css } from "../defaultCss/defaultV2Css";
-// css modern classes
-export { modernCss } from "../defaultCss/cssmodern";
-export * from "../svgbundle";
+// export { defaultV2Css } from "../defaultCss/defaultV2Css";
+// // css modern classes
+// export { modernCss } from "../defaultCss/cssmodern";
+// export * from "../svgbundle";
 
 // utils
 export * from "../rendererFactory";

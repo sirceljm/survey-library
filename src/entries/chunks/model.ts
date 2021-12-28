@@ -97,7 +97,7 @@ export {
 //   MultipleTextItemModel,
 //   QuestionMultipleTextModel
 // } from "../../question_multipletext";
-// export { PanelModel, PanelModelBase, QuestionRowModel } from "../../panel";
+export { PanelModel, PanelModelBase, QuestionRowModel } from "../../panel";
 // export { FlowPanelModel } from "../../flowpanel";
 export { PageModel } from "../../page";
 export * from "../../template-renderer";

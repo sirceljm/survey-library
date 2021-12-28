@@ -50,7 +50,7 @@ export { OtherChoice } from "../vue/otherChoice.vue";
 // export { Panel } from "../vue/panel.vue";
 // export { FlowPanel } from "../vue/flowpanel.vue";
 // export { FlowPanelElement } from "../vue/flowpanelelement.vue";
-// export { Row } from "../vue/row.vue";
+export { Row } from "../vue/row.vue";
 // export { ElementHeader } from "../vue/elementheader.vue";
 export { QuestionImage } from "../vue/image.vue";
 // export { SignaturePad } from "../vue/signaturepad.vue";

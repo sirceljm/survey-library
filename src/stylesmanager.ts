@@ -411,23 +411,23 @@ export class StylesManager {
   public static Media: { [key: string]: { media: string, style: string } } = {
     ".sv_qstn fieldset .sv-q-col-1": {
       style: "width: 100%;",
-      media: "@media only screen and (max-width: 480px)",
+      media: "@media only screen and (max-width: 320px)",
     },
     ".sv_qstn fieldset .sv-q-col-2": {
       style: "width: 100%;",
-      media: "@media only screen and (max-width: 480px)",
+      media: "@media only screen and (max-width: 320px)",
     },
     ".sv_qstn fieldset .sv-q-col-3": {
       style: "width: 100%;",
-      media: "@media only screen and (max-width: 480px)",
+      media: "@media only screen and (max-width: 320px)",
     },
     ".sv_qstn fieldset .sv-q-col-4": {
       style: "width: 100%;",
-      media: "@media only screen and (max-width: 480px)",
+      media: "@media only screen and (max-width: 320px)",
     },
     ".sv_qstn fieldset .sv-q-col-5": {
       style: "width: 100%;",
-      media: "@media only screen and (max-width: 480px)",
+      media: "@media only screen and (max-width: 320px)",
     },
 
     ".sv_main .sv_container .panel-body.card-block .sv_row .sv_qstn": {

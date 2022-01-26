@@ -23,9 +23,6 @@ var svgStoreUtils = require(path.resolve(
 ));
 
 module.exports = function(options, packageJson, chunkName) {
-  // console.log(packageJson)
-  // console.log(packageJsonWithVersion)
-
   packageJson.version = packageJsonWithVersion.version;
   const today = new Date();
   const year = today.getFullYear();
